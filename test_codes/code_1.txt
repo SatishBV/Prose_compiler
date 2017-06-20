@@ -1,0 +1,24 @@
+~Module
+EQUS {[loft.util]}
+
+._init
+func/def     [main], &[. dump]
+local/rtn
+. dump
+stack/lock
+reg/load     PUSH, (![. prose])
+obj/dump     PEEK
+
+. loop
+reg/load     P0, (PEEK)
+reg/jmpeq    &[. loop_next], P0, NULL
+obj/dump     P0
+reg/load     P1, (P0)
+reg/jmpeq    &[. loop], P1, NULL
+
+stack/push   P1
+local/jmp    &[. loop]
+
+. loop_next
+reg/clr      PULL
+reg/jmpneq   &[. loop], PEEK, LOCK
