@@ -10,3 +10,4 @@ Then compile parser.c
 A stack representation of the various pushes and pops is displayed output.
 
 The parser is based on the grammar for this language written in Prose_grammar.txt
+Using this grammar an LL(1) parse table is constructed manually and upadated in grammar.ods
