@@ -1,0 +1,16 @@
+~Module
+EQUS {[loft.util]}
+
+._init
+
+% Load registers P0 and P1 and push onto stack
+reg/load     P0, [A violin concerto], P1, [Brahms]
+stack/push   P0, P1
+
+% Push code pointer onto stack
+reg/load     PUSH, &[._init]
+
+% Pull items off stack
+reg/load     P10, PULL
+reg/dump     PULL, PULL
+reg/dump     P10
