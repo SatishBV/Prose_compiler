@@ -1,0 +1,17 @@
+~Module
+EQUS {[loft.util]}
+
+._init
+reg/load     P0, [Mozart]
+reg/load     P1, [Beethoven]
+
+reg/jsreq    &[.equal], P0, [Mozart]
+reg/jmpneq   &[.notequal], P1, [Mozart]
+
+.equal
+obj/dump     [register comparison equal]
+local/rtn
+
+.notequal
+obj/dump     [register comparison not equal]
+local/rtn
